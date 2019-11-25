@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 	before_action :set_list_task, only: [:move_up]
-  def index
+	def index
   end
 
   def show

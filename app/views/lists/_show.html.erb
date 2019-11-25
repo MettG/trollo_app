@@ -1,20 +1,21 @@
 <h1 class="header"><%=list.name%></h1>
-<%list.sort_tasks%>
 <div class="ui content">
-	<% list.tasks.each do |task|%>
+	<%i = 1%>
+	<% list.sort_tasks.each do |task|%>
 		<div class="item">
 				<div class="ui content">
-					<%if task.priority == 0%>
-						<a class="ui red ribbon label">Task #<%=task.priority+1%></a>
+					<%if i == 1%>
+						<a class="ui red ribbon label">Task #<%=i%></a>
 					<%else%>
-						<a class="ui gray ribbon label">Task #<%=task.priority+1%></a>
+						<a class="ui gray ribbon label">Task #<%=i%></a>
 						<%= link_to 'Move Up', list_task_move_path(list,task), class: "mini ui blue button" %>
 					<%end%>
 					<div class="ui item">
-						<div class="header"><%=task.name%></div>
+						<div class="header"><%=task.name + " #{task.priority}"%></div>
 						<div class="description"><%=task.description%></div>
 					</div>
 				</div>
 			</div>
+			<%i+=1%>
 	<%end%>
 </div>
