@@ -1,0 +1,20 @@
+<h1 class="ui center aligned header">All Boards</h1>
+<div class= "ui horizontal divider"></div>
+
+<div class="ui grid">
+	<% @boards.each do |board| %>
+		<div class="ui card sixteen wide column">
+			<div class="center aligned header"><%=board.name%></div>
+			<br/>
+			<div class="ui cards">
+				<% board.lists.each do |list|%>
+					<div class="ui card">
+						<%= render 'lists/show', list: list%>
+					</div>
+				<%end%>
+			</div>
+		</div>
+		<div class="ui horizontal divider"></div>
+	<%end%>
+</div>
+
